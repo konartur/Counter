@@ -8,7 +8,7 @@
 }
 .counter {
   border: 1px solid rgb(232, 228, 231);
-  width: 150px;
+  width: 250px;
   height: 100px;
   margin: 0 auto;
 }
@@ -21,12 +21,13 @@
 
 .counter_buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-top: 1px solid grey;
 }
 
 .btn_plus,
-.btn_minus {
-  margin: 15px;
-  padding: 10px;
+.btn_minus,
+.btn_reset {
+  margin: 10px;
+  padding: 5px;
 }

@@ -10,6 +10,10 @@ Count.prototype.plus = function() {
         this.count++;
     }
 
+    Count.prototype.reset = function() {
+        this.count = 0;
+    }
+
 
 
 
