@@ -1,4 +1,4 @@
-export default class Count {
+class Count {
     constructor(count) {
         this.count = count;
     }
@@ -11,4 +11,6 @@ export default class Count {
         this.count++;
     }
 }
+
+
 
