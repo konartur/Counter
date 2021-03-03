@@ -1,5 +1,5 @@
 function Count(count) {
-        this.count = 0;
+        this.count = count || 0;
     }
 
 Count.prototype.minus = function() {
