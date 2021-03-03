@@ -1,16 +1,15 @@
-class Count {
-    constructor(count) {
-        this.count = count;
+function Count(count) {
+        this.count = 0;
     }
 
-    minus() {
+Count.prototype.minus = function() {
         this.count--;
     }
 
-    plus() {
+Count.prototype.plus = function() {
         this.count++;
     }
-}
+
 
 
 
