@@ -1,11 +1,10 @@
 function Count(count) {
-    const defaultValue = count;
-
     this.count = count || 0;
+    this.initialState = count || 0;
+}
 
-    Count.prototype.reset = function() {
-       this.count = defaultValue || 0;
-    }
+Count.prototype.reset = function() {
+    this.count = this.initialState;
 }
 
 Count.prototype.minus = function() {
@@ -21,10 +20,7 @@ Count.prototype.random = function(min,max) {
     return this.count;
 }
 
-Count.prototype.view = function(currentValue,result) {
-    currentValue = this.count;
-    result.innerHTML = currentValue;
-}
+
 
 
 

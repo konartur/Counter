@@ -6,33 +6,33 @@ let btnRandom = document.querySelector('.btn_rndm');
 let result = document.querySelector('.result');
 let resultStep = document.getElementById('result-step');
 
-let calc = new Count(2222);
+let calc = new Count();
 result.innerHTML = calc.count;
+
+function view () {
+    result.innerHTML = calc.count;
+}
 
 //События для каждой кнопки
 
 btnMinus.addEventListener('click', () => {
     calc.minus();
-    calc.view(calc.count,result);
-    // result.innerHTML = calc.count;
+    view();
 });
 
 btnPlus.addEventListener('click', () => {
     calc.plus();
-    calc.view(calc.count,result);
-    // result.innerHTML = calc.count;
+    view();
 });
 
 btnReset.addEventListener('click', () => {
     calc.reset();
-    calc.view(calc.count,result);
-    // result.innerHTML = calc.count;
+    view();
 })
 
 btnRandom.addEventListener('click', () => {
     calc.random(0,100);
-    calc.view(calc.count,result);
-    // result.innerHTML = calc.count;
+    view();
 })
 
 resultStep.addEventListener('change', () => {
