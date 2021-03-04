@@ -6,7 +6,7 @@ let btnRandom = document.querySelector('.btn_rndm');
 let result = document.querySelector('.result');
 let resultStep = document.getElementById('result-step');
 
-let calc = new Count();
+let calc = new Count(2222);
 result.innerHTML = calc.count;
 
 //События для каждой кнопки
