@@ -5,38 +5,42 @@ let btnReset = document.querySelector('.btn_reset');
 let btnRandom = document.querySelector('.btn_rndm');
 let result = document.querySelector('.result');
 let resultStep = document.getElementById('result-step');
+let stepLabel = document.querySelector('.step-label');
 
-let calc = new Count();
-result.innerHTML = calc.count;
+let calc = new Count(0, resultStep.step);
 
-function view () {
+function render () {
     result.innerHTML = calc.count;
 }
+render();
+
+resultStep.step = resultStep.value;
+calc.step();
 
 //События для каждой кнопки
 
 btnMinus.addEventListener('click', () => {
     calc.minus();
-    view();
+    calc.step();
+    render();
 });
 
 btnPlus.addEventListener('click', () => {
     calc.plus();
-    view();
+    render();
 });
 
 btnReset.addEventListener('click', () => {
     calc.reset();
-    view();
+    render();
 })
 
 btnRandom.addEventListener('click', () => {
-    calc.random(0,100);
-    view();
+    calc.random(0,10);
+    render();
 })
 
 resultStep.addEventListener('change', () => {
-    result.innerHTML = resultStep.value;
-    calc.count = resultStep.value;
+    stepLabel.innerHTML = resultStep.value;
 })
 
