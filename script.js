@@ -24,5 +24,6 @@ btnReset.addEventListener('click', () => {
 
 resultStep.addEventListener('change', () => {
     result.innerHTML = resultStep.value;
+    calc.count = resultStep.value;
 })
 
