@@ -1,3 +1,4 @@
+let allButtons = document.getElementsByClassName('counter_buttons');
 let btnMinus = document.querySelector('.btn_minus');
 let btnPlus = document.querySelector('.btn_plus');
 let btnReset = document.querySelector('.btn_reset');
@@ -5,31 +6,41 @@ let btnRandom = document.querySelector('.btn_rndm');
 let result = document.querySelector('.result');
 let resultStep = document.getElementById('result-step');
 
+//Отслеживаю изменение счетчика и перезаписываю результат
+for(item of allButtons[0].children) {
+    item.onclick = function(event) {
+        event.currentTarget;
+        calc.view(result);
+        result.innerHTML = calc.count;
+    }  
+}
+
+//События для каждой кнопки
 let calc = new Count();
 result.innerHTML = calc.count;
 
 btnMinus.addEventListener('click', () => {
     calc.minus();
-    result.innerHTML = calc.count;
+    // result.innerHTML = calc.count;
 });
 
 btnPlus.addEventListener('click', () => {
     calc.plus();
-    result.innerHTML = calc.count;
+    // result.innerHTML = calc.count;
 });
 
 btnReset.addEventListener('click', () => {
     calc.reset();
-    result.innerHTML = calc.count;
+    // result.innerHTML = calc.count;
 })
 
 btnRandom.addEventListener('click', () => {
     calc.random(0,100);
-    result.innerHTML = calc.count;
+    // result.innerHTML = calc.count;
 })
 
 resultStep.addEventListener('change', () => {
     result.innerHTML = resultStep.value;
-    calc.count = resultStep.value;
+    // calc.count = resultStep.value;
 })
 
