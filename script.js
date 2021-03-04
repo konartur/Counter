@@ -1,6 +1,7 @@
 let btnMinus = document.querySelector('.btn_minus');
 let btnPlus = document.querySelector('.btn_plus');
 let btnReset = document.querySelector('.btn_reset');
+let btnRandom = document.querySelector('.btn_rndm');
 let result = document.querySelector('.result');
 let resultStep = document.getElementById('result-step');
 
@@ -19,6 +20,11 @@ btnPlus.addEventListener('click', () => {
 
 btnReset.addEventListener('click', () => {
     calc.reset();
+    result.innerHTML = calc.count;
+})
+
+btnRandom.addEventListener('click', () => {
+    calc.random(0,100);
     result.innerHTML = calc.count;
 })
 
