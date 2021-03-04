@@ -6,41 +6,37 @@ let btnRandom = document.querySelector('.btn_rndm');
 let result = document.querySelector('.result');
 let resultStep = document.getElementById('result-step');
 
-//Отслеживаю изменение счетчика и перезаписываю результат
-for(item of allButtons[0].children) {
-    item.onclick = function(event) {
-        event.currentTarget;
-        calc.view(result);
-        result.innerHTML = calc.count;
-    }  
-}
-
-//События для каждой кнопки
 let calc = new Count();
 result.innerHTML = calc.count;
 
+//События для каждой кнопки
+
 btnMinus.addEventListener('click', () => {
     calc.minus();
+    calc.view(calc.count,result);
     // result.innerHTML = calc.count;
 });
 
 btnPlus.addEventListener('click', () => {
     calc.plus();
+    calc.view(calc.count,result);
     // result.innerHTML = calc.count;
 });
 
 btnReset.addEventListener('click', () => {
     calc.reset();
+    calc.view(calc.count,result);
     // result.innerHTML = calc.count;
 })
 
 btnRandom.addEventListener('click', () => {
     calc.random(0,100);
+    calc.view(calc.count,result);
     // result.innerHTML = calc.count;
 })
 
 resultStep.addEventListener('change', () => {
     result.innerHTML = resultStep.value;
-    // calc.count = resultStep.value;
+    calc.count = resultStep.value;
 })
 
