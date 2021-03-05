@@ -28,13 +28,30 @@
 }
 
 .counter_buttons {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 50% 50%;
   border-top: 1px solid grey;
 }
 
 .btn {
-  margin: 10px;
-  padding: 0;
-  height: 20px;
+  outline: 0;
+  position: relative;
+  display: inline-block;
+  padding: 10px 40px;
+  font-size: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  background: #711c76;
+  color: #fff;
+  font-weight: 600;
+  transition: box-shadow 0.1s ease-in-out, border-color 0.1s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #711c76;
+  color: #fff;
+  box-shadow: 0 0 5px #711c76, 0 0 10px rgb(255 0 255 / 0.8),
+    0 0 15px rgb(255 0 255 / 0.7), 0 0 30px rgb(255 0 255 / 0.6);
+  border-color: rgb(255, 115, 196);
 }
