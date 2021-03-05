@@ -1,7 +1,7 @@
-function Count(count) {
+function Count(count,currentStep) {
     this.count = count || 0;
-    this.initialState = count || 0;
-    this.currentStep = 1;
+    this.initialState = this.count;
+    this.currentStep = currentStep || 1;
 }
 
 Count.prototype.reset = function() {
@@ -17,14 +17,14 @@ Count.prototype.plus = function() {
     }
 
 Count.prototype.random = function(min,max) {
-    min = 0;
-    max = 10;
+    if (min === undefined && max === undefined) {
+        min = 0;
+        max = 10;
+    }
+
     this.count = Math.floor(min + Math.random() * (max + 1 - min));
 }
 
-Count.prototype.stepupdate = function() {
-    this.stepState = this.currentStep;
-}
 
 
 

@@ -8,16 +8,16 @@ const resultStep = document.getElementById('result-step');
 const stepLabel = document.querySelector('.step-label');
 
 const calc = new Count();
+
 function render () {
     result.innerHTML = calc.count;
 }
 render();
 
 //Значение для шага
-resultStep.addEventListener('change', () => {
-    calc.currentStep = resultStep.value;
+resultStep.addEventListener('change', (e) => {
+    calc.currentStep = e.target.value;
     stepLabel.innerHTML = resultStep.value;
-    calc.stepupdate();
 });
 
 //События для каждой кнопки
