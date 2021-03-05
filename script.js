@@ -7,20 +7,19 @@ const result = document.querySelector('.result');
 const resultStep = document.getElementById('result-step');
 const stepLabel = document.querySelector('.step-label');
 
-//Значение для шага
-let currentStep = 1;
-
-const calc = new Count(0, currentStep);
+const calc = new Count();
 function render () {
     result.innerHTML = calc.count;
 }
 render();
 
+//Значение для шага
 resultStep.addEventListener('change', () => {
-    currentStep = resultStep.value;
+    calc.currentStep = resultStep.value;
     stepLabel.innerHTML = resultStep.value;
-    calc.stepState = currentStep;
+    calc.stepupdate();
 });
+
 //События для каждой кнопки
 
 btnMinus.addEventListener('click', () => {
@@ -31,7 +30,6 @@ btnMinus.addEventListener('click', () => {
 btnPlus.addEventListener('click', () => {
     calc.plus();
     render();
-    console.log(currentStep);
 });
 
 btnReset.addEventListener('click', () => {
@@ -40,7 +38,7 @@ btnReset.addEventListener('click', () => {
 })
 
 btnRandom.addEventListener('click', () => {
-    calc.random(0,10);
+    calc.random();
     render();
 })
 
