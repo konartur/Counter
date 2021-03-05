@@ -1,33 +1,37 @@
-let allButtons = document.getElementsByClassName('counter_buttons');
-let btnMinus = document.querySelector('.btn_minus');
-let btnPlus = document.querySelector('.btn_plus');
-let btnReset = document.querySelector('.btn_reset');
-let btnRandom = document.querySelector('.btn_rndm');
-let result = document.querySelector('.result');
-let resultStep = document.getElementById('result-step');
-let stepLabel = document.querySelector('.step-label');
+const allButtons = document.getElementsByClassName('counter_buttons');
+const btnMinus = document.querySelector('.btn_minus');
+const btnPlus = document.querySelector('.btn_plus');
+const btnReset = document.querySelector('.btn_reset');
+const btnRandom = document.querySelector('.btn_rndm');
+const result = document.querySelector('.result');
+const resultStep = document.getElementById('result-step');
+const stepLabel = document.querySelector('.step-label');
 
-let calc = new Count(0, resultStep.step);
+//Значение для шага
+let currentStep = 1;
 
+const calc = new Count(0, currentStep);
 function render () {
     result.innerHTML = calc.count;
 }
 render();
 
-resultStep.step = resultStep.value;
-calc.step();
-
+resultStep.addEventListener('change', () => {
+    currentStep = resultStep.value;
+    stepLabel.innerHTML = resultStep.value;
+    calc.stepState = currentStep;
+});
 //События для каждой кнопки
 
 btnMinus.addEventListener('click', () => {
     calc.minus();
-    calc.step();
     render();
 });
 
 btnPlus.addEventListener('click', () => {
     calc.plus();
     render();
+    console.log(currentStep);
 });
 
 btnReset.addEventListener('click', () => {
@@ -40,7 +44,5 @@ btnRandom.addEventListener('click', () => {
     render();
 })
 
-resultStep.addEventListener('change', () => {
-    stepLabel.innerHTML = resultStep.value;
-})
+
 

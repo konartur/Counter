@@ -33,10 +33,7 @@
   border-top: 1px solid grey;
 }
 
-.btn_plus,
-.btn_minus,
-.btn_reset,
-.btn_rndm {
+.btn {
   margin: 10px;
   padding: 0;
   height: 20px;
